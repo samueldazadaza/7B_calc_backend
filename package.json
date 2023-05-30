@@ -1,0 +1,17 @@
+{
+  "name": "b_calcbackend",
+  "version": "0.0.1",
+  "description": "Backend para el proyecto de calculadora",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "calculadora",
+    "api",
+    "backend",
+    "intermedio"
+  ],
+  "author": "Samuel Daza <samueldazadaza@gmail.com>",
+  "license": "MIT"
+}

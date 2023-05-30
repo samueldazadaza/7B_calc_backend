@@ -11,14 +11,17 @@ app.use(express.json());
 //Definir la ruta (la url) en donde va a responder nuestra API
 // http://localhost:3000/ruta
 
-app.get(
+app.post(
     '/api/sumar',
     //se requieren dos objetos: uno representando la petición
     // un objeto representando la respuesta
     (req, res) =>{
         // To Do: Aqui va el procesamiento de la petición a esta ruta.
-        console.log("Alguien esta conectandose  a esta ruta!!!!sumar!");
-        res.json(req.body)
+        console.log("Alguien esta conectandose  a esta ruta!!!!/sumar!");
+        const {numero_1, numero_2} = req.body;
+        const resultado = numero_1 + numero_2
+
+        res.json(resultado);
     }
 );
 
@@ -26,13 +29,13 @@ app.post(
     '/api/restar',
     (req, res)=>{
 
-        const {numero_1, numero_2}=req.body;
-
+        
         /*
         const numero_1 = req.body.numero_1;
         const numero_2 = req.body.numero_2;
         */
-
+       
+        const {numero_1, numero_2}=req.body;
         const resultado = numero_1 - numero_2
 
         res.json(resultado);

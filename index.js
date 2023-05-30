@@ -12,7 +12,7 @@ app.use(express.json());
 // http://localhost:3000/ruta
 
 app.get(
-    '/sumar',
+    '/api/sumar',
     //se requieren dos objetos: uno representando la petición
     // un objeto representando la respuesta
     (req, res) =>{
@@ -23,7 +23,7 @@ app.get(
 );
 
 app.post(
-    '/restar',
+    '/api/restar',
     (req, res)=>{
 
         const {numero_1, numero_2}=req.body;
@@ -39,7 +39,39 @@ app.post(
     }
 );
 
+// ¿Como quedaria la ruta para devidir?
 
+app.post(
+    '/api/dividir',
+    (req, res)=>{
+        // const {numero_1, numero_2} = req.body;
+        // let resultado;
+        // if(numero_2!=0){
+        //     resultado = numero_1 / numero_2;
+        // }else{
+        //     resultado="error";
+        // }
+        // res.json(resultado);
+
+        //tratar error con TRY CATCH
+        let resultado;
+        try {
+            const {numero_1, numero_2} = req.body;
+            resultado = numero_1 / numero_2;
+        } catch (error) {
+            //gestionar el error
+            resultado=error
+        }
+        
+        res.json(resultado);
+
+    }
+)
+
+// Taller: ¿Como crear una ruta que yo le pueda pasar un numero indeterminado de datos?
+
+//ejemplo
+//resultado = n1+n2+n3
 
 
 

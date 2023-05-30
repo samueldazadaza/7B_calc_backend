@@ -13,5 +13,11 @@
     "intermedio"
   ],
   "author": "Samuel Daza <samueldazadaza@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }

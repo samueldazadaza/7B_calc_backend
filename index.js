@@ -7,6 +7,17 @@ const app = express();
 
 app.use(express.json());
 
+
+//agregar encabezados  CORS
+app.use( function(req, res, next){ // "use" es usado antes de procesar codigo dentro de cada ruta
+    res.header("Access-Control-Allow-origin", "*"); //permitir el acceso de diferentes origenes.
+    res.header("Access-Control-Allow-Methods", "POST"); // tipo de peticiones permitidas.
+    res.header("Access-Control-Allow-Headers", "Content-type"); // tipos de encabezado permitidos.
+    next();
+}
+);
+
+
 //Definir los entry point de la API
 //Definir la ruta (la url) en donde va a responder nuestra API
 // http://localhost:3000/ruta
@@ -19,7 +30,7 @@ app.post(
         // To Do: Aqui va el procesamiento de la petición a esta ruta.
         console.log("Alguien esta conectandose  a esta ruta!!!!/sumar!");
         const {numero_1, numero_2} = req.body;
-        const resultado = numero_1 + numero_2
+        const resultado = parseFloat(numero_1) + parseFloat(numero_2)
 
         res.json(resultado);
     }
@@ -82,7 +93,7 @@ app.post(
 //3. Crear un servicio para escuchar peticiones
 
 app.listen(
-    3001,
+    3000,
     ()=>{
         console.log("Servidor ejecutandose en el puerto 3000😎")
     }

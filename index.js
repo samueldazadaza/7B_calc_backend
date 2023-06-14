@@ -28,7 +28,7 @@ app.post(
     // un objeto representando la respuesta
     (req, res) =>{
         // To Do: Aqui va el procesamiento de la petición a esta ruta.
-        console.log("Alguien esta conectandose  a esta ruta!!!!/sumar!");
+        console.log("Alguien esta conectandose a esta ruta👉 /sumar");
         const {numero_1, numero_2} = req.body;
         const resultado = parseFloat(numero_1) + parseFloat(numero_2)
 
@@ -45,7 +45,7 @@ app.post(
         const numero_1 = req.body.numero_1;
         const numero_2 = req.body.numero_2;
         */
-       
+        console.log("Alguien esta conectandose a esta ruta👉 /restar");
         const {numero_1, numero_2}=req.body;
         const resultado = numero_1 - numero_2
 
@@ -58,6 +58,7 @@ app.post(
 app.post(
     '/api/dividir',
     (req, res)=>{
+        console.log("Alguien esta conectandose a esta ruta👉 /dividir");
         // const {numero_1, numero_2} = req.body;
         // let resultado;
         // if(numero_2!=0){
@@ -82,6 +83,27 @@ app.post(
     }
 )
 
+//operacion multiplicar, agregado a tarea profe
+
+app.post(
+    '/api/multiplicar',
+    (req, res)=>{
+        console.log("Alguien esta conectandose a esta ruta👉 /multiplicar");
+        let resultado;
+        //tratar error con TRY CATCH
+        try {
+            const {numero_1, numero_2} = req.body;
+            resultado = numero_1 * numero_2;
+        } catch (error) {
+            //gestionar el error
+            resultado=error
+        }
+        res.json(resultado);
+    }
+)
+
+
+
 // Taller: ¿Como crear una ruta que yo le pueda pasar un numero indeterminado de datos?
 
 //ejemplo
@@ -95,6 +117,6 @@ app.post(
 app.listen(
     3000,
     ()=>{
-        console.log("Servidor ejecutandose en el puerto 3000😎")
+        console.log("Servidor ejecutandose en el puerto 3000😎🎮👀🎯")
     }
 );
